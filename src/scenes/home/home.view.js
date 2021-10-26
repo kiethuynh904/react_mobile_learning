@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
+import NavigationServices from '../../services/NavigationService';
 
 const HomeView = () => {
   return (
     <View>
-      <Text>Hello Home</Text>
+      <Button
+        title="Speech To Text"
+        onPress={() => NavigationServices.navigate('Voice')}
+      />
     </View>
   );
 };

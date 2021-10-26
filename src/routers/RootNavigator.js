@@ -7,6 +7,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Button, Text, View} from 'react-native';
 import HomeContainer from '../scenes/home/home.container';
+import VoiceContainer from '../scenes/voice/voice.container';
+import NavigationServices from '../services/NavigationService';
 
 const Tab = createBottomTabNavigator();
 function DetailsScreen() {
@@ -33,7 +35,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeContainer} />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
+      <HomeStack.Screen name="Voice" component={VoiceContainer} />
     </HomeStack.Navigator>
   );
 }
@@ -62,12 +64,11 @@ function RootNavigator() {
   return (
     <SafeAreaProvider>
       <NavigationContainer
-      // linking={linking}
-      //   theme={MyTheme}
-      //   ref={(navigatorRef) => {
-      //     NavigationServices.setTopLevelNavigator(navigatorRef)
-      //   }}
-      >
+        // linking={linking}
+        //   theme={MyTheme}
+        ref={navigatorRef => {
+          NavigationServices.setTopLevelNavigator(navigatorRef);
+        }}>
         <MyBottomTab />
       </NavigationContainer>
     </SafeAreaProvider>

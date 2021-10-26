@@ -12,6 +12,10 @@ target 'mobile_learning_demo' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-voice', :path => '../node_modules/@react-native-voice/voice'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'mobile_learning_demoTests' do
     inherit! :complete
     # Pods for testing
